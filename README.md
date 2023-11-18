@@ -19,6 +19,11 @@ npx prettier --check .
 npx prettier --write
 ```
 
+```Prisma
+npx prisma db pull
+npx prisma db push
+```
+
 ```Docker
 docker build -t anifit_space .
 ```
