@@ -15,7 +15,18 @@ const protectedPaths: string[] = [
 ];
 
 export const config = {
-  matcher: ["/", ...protectedPaths],
+  matcher: [
+    "/",
+    "/market",
+    "/posts",
+    "/explore",
+    "/ai_generated",
+    "/ai_minting",
+    "/manual",
+    "/collection",
+    "/space",
+    "/favourites",
+  ],
 };
 
 export async function middleware(request: NextRequest) {

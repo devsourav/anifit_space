@@ -4,10 +4,15 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import GitHubProvider from "next-auth/providers/github";
 import bcrypt from "bcryptjs";
-import { connectToDatabase } from "@/helpers/server-helpers";
+import { PrismaAdapter } from "@auth/prisma-adapter";
+import { PrismaClient } from "@prisma/client";
 import prisma from "../../../../../prisma";
+import { connectToDatabase } from "@/helpers/server-helpers";
+
+const prismaClient = new PrismaClient();
 
 const authOptions: any = {
+  adapter: PrismaAdapter(prismaClient),
   providers: [
     // OAuth authentication providers...
     CredentialsProvider({
